@@ -9,5 +9,6 @@
   	<module>command</module>
   	<module>singleton</module>
   	<module>adapter</module>
+  	<module>decorator</module>
   </modules>
 </project>
