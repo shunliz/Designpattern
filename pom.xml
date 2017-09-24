@@ -7,5 +7,6 @@
   <modules>
   	<module>abfactory</module>
   	<module>command</module>
+  	<module>singleton</module>
   </modules>
 </project>
