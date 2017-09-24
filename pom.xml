@@ -12,5 +12,6 @@
   	<module>decorator</module>
   	<module>proxy</module>
   	<module>bridge</module>
+  	<module>observer</module>
   </modules>
 </project>
