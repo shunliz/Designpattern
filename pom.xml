@@ -11,5 +11,6 @@
   	<module>adapter</module>
   	<module>decorator</module>
   	<module>proxy</module>
+  	<module>bridge</module>
   </modules>
 </project>
