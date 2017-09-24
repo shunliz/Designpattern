@@ -10,5 +10,6 @@
   	<module>singleton</module>
   	<module>adapter</module>
   	<module>decorator</module>
+  	<module>proxy</module>
   </modules>
 </project>
