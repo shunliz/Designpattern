@@ -8,5 +8,6 @@
   	<module>abfactory</module>
   	<module>command</module>
   	<module>singleton</module>
+  	<module>adapter</module>
   </modules>
 </project>
