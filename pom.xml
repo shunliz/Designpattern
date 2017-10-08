@@ -13,5 +13,6 @@
   	<module>proxy</module>
   	<module>bridge</module>
   	<module>observer</module>
+  	<module>algrithom</module>
   </modules>
 </project>
