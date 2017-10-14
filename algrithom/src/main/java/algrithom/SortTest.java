@@ -1,5 +1,7 @@
 package algrithom;
 
+import java.util.LinkedList;
+
 public class SortTest {
 	
 	public void insertSort(int[] a){
@@ -115,7 +117,6 @@ public class SortTest {
     		}
     		this.printlist(b, k);
     	}
-    	
     }
     
     public void mergeSort(int[] a){
@@ -160,6 +161,55 @@ public class SortTest {
 		while(j<=end){
 			a[j]=temp[j];
 			j++;
+		}
+	}
+	
+	public void bucketSort(int[] a, int max){
+		int[] sorted = new int[max+1];
+		for(int i=0;i<a.length;i++){
+			sorted[a[i]] += 1;
+		}
+		int k=0;
+		for(int i=0;i<sorted.length;i++){
+			for(int j=0;j<sorted[i];j++){
+				if(sorted[i] >=0){
+					a[k]=i;
+					k++;
+				}
+			}
+			
+		}
+	}
+	
+	public void radixSort(int[] a){
+		LinkedList<Integer>[] gewei = new LinkedList[10];
+		LinkedList<Integer>[] shiwei = new LinkedList[10];
+		for(int i=0;i<10;i++){
+			gewei[i] = new LinkedList();
+			shiwei[i] = new LinkedList();
+		}
+		
+		for(int i=0;i<a.length;i++){
+			gewei[a[i]%10].add(a[i]);
+		}
+		int k=0;
+		for(int i=0;i<10;i++){
+			for(Integer data:gewei[i]){
+				a[k]=data;
+				k++;
+			}
+		}
+		
+		for(int i=0;i<a.length;i++){
+			shiwei[a[i]/10].add(a[i]);
+		}
+		
+		k=0;
+		for(int i=0;i<10;i++){
+			for(Integer data:gewei[i]){
+				a[k]=data;
+				k++;
+			}
 		}
 	}
 
@@ -211,6 +261,15 @@ public class SortTest {
 		test.mergeSort(a6);
 		test.printlist(a6);
 		
+		System.out.println("##########################");
+		int[] a7 = {8,3,2,5,9,3,6};
+		test.bucketSort(a7, 9);
+		test.printlist(a7);
+		
+		System.out.println("##########################");
+		int[] a8 = {18,13,12,15,19,13,16};
+		test.radixSort(a8);
+		test.printlist(a8);
 	}
 
 }
