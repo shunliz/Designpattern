@@ -117,8 +117,53 @@ public class SortTest {
     	}
     	
     }
+    
+    public void mergeSort(int[] a){
+    	sort(a, 0, a.length-1);
+    }
 
-	public void printlist(int[] a){
+	private void sort(int[] a, int start, int end) {
+		if(start<end){
+			int middle = (start+end)/2;
+			sort(a, start, middle);
+			sort(a, middle+1, end);
+			merge(a, start, middle, end);
+		}
+	}
+
+	private void merge(int[] a, int start, int middle, int end) {
+		int[] temp = new int[a.length];
+		int mid = middle+1;
+		int i = start;
+		int j = start;
+		while(start<=middle&&mid<=end){
+			if(a[start]<=a[mid]){
+				temp[i] = a[start];
+				i++;
+				start++;
+			}else{
+				temp[i]=a[mid];
+				i++;
+				mid++;
+			}
+		}
+		while(start<=middle){
+			temp[i]=a[start];
+			i++;
+			start++;
+		}
+		while(mid<=end){
+			temp[i]=a[mid];
+			i++;
+			mid++;
+		}
+		while(j<=end){
+			a[j]=temp[j];
+			j++;
+		}
+	}
+
+	public void printlist(int[] a){  
 		for(int i=0;i<a.length;i++){
 			System.out.print(a[i]+" ");
 		}
@@ -160,6 +205,11 @@ public class SortTest {
 		System.out.println("##########################");
 		test.topK(a5, 7);
 		test.printlist(a5, 7);
+		
+		System.out.println("##########################");
+		int[] a6 = {8,3,2,5,9,3,6};
+		test.mergeSort(a6);
+		test.printlist(a6);
 		
 	}
 
